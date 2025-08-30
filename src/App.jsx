@@ -1,28 +1,34 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import CodeSamples from './components/CodeSamples';
+import Features from './components/Features';
+import Footer from './components/Footer';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen w-full bg-neutral-950 text-gray-200 antialiased">
+      <header className="sticky top-0 z-50 border-b border-white/10 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/70">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
+          <div className="flex items-center gap-3">
+            <div className="h-8 w-8 rounded-md bg-gradient-to-br from-cyan-400 to-blue-600" />
+            <span className="text-sm font-semibold tracking-wide text-white">Vanished Auth</span>
+          </div>
+          <nav className="hidden items-center gap-6 text-sm md:flex">
+            <a href="#code" className="text-gray-300 hover:text-white">Docs</a>
+            <a href="#features" className="text-gray-300 hover:text-white">Security</a>
+            <a href="#waitlist" className="text-gray-300 hover:text-white">Waitlist</a>
+          </nav>
+          <a href="#waitlist" className="rounded-md bg-white px-3 py-1.5 text-xs font-semibold text-neutral-900 hover:bg-gray-200 md:text-sm">Get early access</a>
         </div>
-      </div>
-    </div>
-  )
-}
+      </header>
 
-export default App
+      <main>
+        <Hero />
+        <CodeSamples />
+        <Features />
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
